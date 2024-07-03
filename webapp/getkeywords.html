@@ -1,0 +1,37 @@
+ <!DOCTYPE html>
+<html>
+
+<head>
+<script>
+function retrieveLangKeywords() {
+  const xhreq = new XMLHttpRequest();
+  xhreq.onload = function() {
+    document.getElementById("kwords").innerHTML = "<pre>" + this.responseText + "</pre>";
+  }
+  xhreq.open("GET", "http://localhost:8080/getkeywords.php?lang=" + document.getElementById('lang').value, true);
+  xhreq.send();
+}
+</script> 
+</head>
+
+<body>
+
+<div>
+
+<label for="lang">Language:</label>
+<input type="text" id="lang" name="lang">
+
+<button type="button" onclick="retrieveLangKeywords()">Download</button>
+
+<h2>Language keywords:</h2>
+
+<p id="kwords">
+To be downloaded from the server using AJAX
+</p>
+
+</div>
+
+</body>
+
+</html> 
+

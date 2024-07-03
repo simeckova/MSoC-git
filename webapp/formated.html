@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .keyword {
+                color: orangered;
+            }
+        </style>
+        <script>
+            const debugging = true;
+            const address = "http://localhost:8080/";
+
+            let keywords = [];
+            let loadKeywords = false;
+            let file = "";
+            let loadFile = false;
+
+            function lang(fname){
+                const parts = fname.split(".");
+                if(debugging) console.log("File lang is " + parts[parts.length-1]);
+                return parts[1];
+            }
+            function retrieveFileData() {
+                const fname = document.getElementById('fname').value;
+                if(debugging) console.log("Recieved file name " + fname);
+
+                keywords = [];
+                loadKeywords = false;
+                file = "";
+                loadFile = false;
+
+                ready = function(){
+                    return loadKeywords && loadFile;
+                }
+                show = function(){
+                    if(!ready()) return;
+                    if(debugging) console.log("Showing");
+                    let s = "";
+                    const lines = file.split("\n");
+                    for(let i=0; i<lines.length; i++){
+                        const words = lines[i].split(" ");
+                        for(let j=0; j<words.length; j++){
+                            const word = words[j].trim();
+                            if(debugging) console.log("Word is '" + word + "', keywords.includes(word)=" + keywords.includes(word));
+                            if(keywords.includes(word)){
+                                s += "<span class='keyword'>" + word + "</span>";
+                            } else {
+                                s += word;
+                            }
+                            if(j!=words.length-1) s += " ";
+                        }
+                        s += "<br>"
+                    }
+                    document.getElementById("fdata").innerHTML = "<code>" + s + "</code>";
+                }
+
+                const reqKeywords = new XMLHttpRequest();
+                reqKeywords.onload = function() {
+                    keywords = this.responseText.split("\n");
+                    for(let i=0; i<keywords.length; i++){
+                        keywords[i] = keywords[i].trim();
+                    }
+                    loadKeywords = true;
+                    if(debugging) console.log("Loaded keywords:" + keywords);
+                    show();
+                }
+                reqKeywords.open("GET", address + "getkeywords.php?lang=" + lang(fname), true);
+                reqKeywords.send();
+
+                const reqFile = new XMLHttpRequest();
+                reqFile.onload = function() {
+                    file = this.responseText;
+                    loadFile = true;
+                    if(debugging) console.log("Loaded file");
+                    show();
+                }
+                reqFile.open("GET", address + "showfile.php?fname=" + fname, true);
+                reqFile.send();
+            }
+        </script>
+    </head>
+    <body>
+        <div>
+            <label for="fname">File name:</label>
+            <input type="text" id="fname" name="fname">
+
+            <button type="button" onclick="retrieveFileData()">Download</button>
+
+            <h2>File data:</h2>
+
+            <p id="fdata">
+                Will show <code> Some <span class="keyword">key</span> word</code>, file example is JPFUtils.java
+            </p>
+        </div>
+    </body>
+</html> 
