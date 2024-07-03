@@ -1,37 +1,32 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-<script>
-function retrieveFileData() {
-  const xhreq = new XMLHttpRequest();
-  xhreq.onload = function() {
-    document.getElementById("fdata").innerHTML = "<pre>" + this.responseText + "</pre>";
-  }
-  xhreq.open("GET", "http://localhost:8080/showfile.php?fname=" + document.getElementById('fname').value, true);
-  xhreq.send();
-}
-</script> 
-</head>
+    <head>
+        <script>
+            const address = "http://localhost:8080/";
+            function retrieveFileData() {
+                const xhreq = new XMLHttpRequest();
+                xhreq.onload = function() {
+                    document.getElementById("fdata").innerHTML = "<pre>" + this.responseText + "</pre>";
+                }
+                xhreq.open("GET", address + "showfile.php?fname=" + document.getElementById('fname').value, true);
+                xhreq.send();
+            }
+        </script> 
+    </head>
 
-<body>
+    <body>
+        <div>
+            <label for="fname">File name:</label>
+            <input type="text" id="fname" name="fname">
 
-<div>
+            <button type="button" onclick="retrieveFileData()">Download</button>
 
-<label for="fname">File name:</label>
-<input type="text" id="fname" name="fname">
+            <h2>File data:</h2>
 
-<button type="button" onclick="retrieveFileData()">Download</button>
-
-<h2>File data:</h2>
-
-<p id="fdata">
-To be downloaded from the server using AJAX
-</p>
-
-</div>
-
-</body>
-
-</html> 
-
+            <p id="fdata">
+                To be downloaded from the server using AJAX
+            </p>
+        </div>
+    </body>
+</html>

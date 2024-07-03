@@ -1,33 +1,26 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
+    <head>
+        <script>
+            const address = "http://localhost:8080/";
+            function loadFiles() {
+                const xhreq = new XMLHttpRequest();
+                xhreq.onload = function() {
+                    document.getElementById("listfiles").innerHTML = this.responseText;
+                }
+                xhreq.open("GET", address + "listfiles.php", true);
+                xhreq.send();
+            }
+        </script>
+    </head>
+    <body>
+        <div>
+            <h2>List of files:</h2>
+            <p id="listfiles">
+                To be downloaded from the server using AJAX
+            </p>
 
-<head>
-<script>
-function loadFiles() {
-  const xhreq = new XMLHttpRequest();
-  xhreq.onload = function() {
-    document.getElementById("listfiles").innerHTML = this.responseText;
-  }
-  xhreq.open("GET", "http://localhost:8080/listfiles.php", true);
-  xhreq.send();
-}
-</script> 
-</head>
-
-<body>
-
-<div>
-
-<h2>List of files:</h2>
-<p id="listfiles">
-To be downloaded from the server using AJAX
-</p>
-
-<button type="button" onclick="loadFiles()">Download</button>
-
-</div>
-
-</body>
-
-</html> 
-
+            <button type="button" onclick="loadFiles()">Download</button>
+        </div>
+    </body>
+</html>
