@@ -18,7 +18,7 @@
             function lang(fname){
                 const parts = fname.split(".");
                 if(debugging) console.log("File lang is " + parts[parts.length-1]);
-                return parts[1];
+                return parts[parts.length-1];
             }
             function retrieveFileData() {
                 const fname = document.getElementById('fname').value;
@@ -89,7 +89,7 @@
             <h2>File data:</h2>
 
             <p id="fdata">
-                Will show <code> Some <span class="keyword">key</span> word</code>, file example is JPFUtils.java
+                Will show Some <code><span class="keyword">key</span></code> word, file example is JPFUtils.java or short.java
             </p>
         </div>
     </body>

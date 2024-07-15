@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            const address = "http://localhost:8080/";
+            function retrieveLangIdfChars() {
+                const xhreq = new XMLHttpRequest();
+                xhreq.onload = function() {
+                    document.getElementById("idfchars").innerHTML = "<pre>" + this.responseText + "</pre>";
+                }
+                xhreq.open("GET", address + "getidfchars.php?lang=" + document.getElementById('lang').value, true);
+                xhreq.send();
+            }
+        </script> 
+    </head>
+    <body>
+        <div>
+            <label for="lang">Language:</label>
+            <input type="text" id="lang" name="lang">
+
+            <button type="button" onclick="retrieveLangIdfChars()">Download</button>
+
+            <h2>Language identifier characters (regex):</h2>
+
+            <p id="idfchars">
+                To be downloaded from the server using AJAX
+            </p>
+        </div>
+    </body>
+</html> 
