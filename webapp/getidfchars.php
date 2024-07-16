@@ -7,6 +7,6 @@ if ($req_lang == "java")
 }
 else
 {
-	echo "Unsupported language!";
+	echo "Unsupported language! (you entered ".$req_lang;
 }
 ?>

@@ -2,6 +2,11 @@
 <html>
     <head>
         <style>
+            #fdata {
+                border: 1px solid #ddd;
+                overflow: auto;
+                height: 500px;
+            }
             .keyword {
                 color: orangered;
             }
@@ -10,8 +15,13 @@
             const debugging = true;
             const address = "http://localhost:8080/";
 
+            const space = "&nbsp";
+            const tabLen = 4;
+
             let keywords = [];
             let loadKeywords = false;
+            let idfchars = "";
+            let loadIdfchars = false;
             let file = "";
             let loadFile = false;
 
@@ -20,39 +30,75 @@
                 if(debugging) console.log("File lang is " + parts[parts.length-1]);
                 return parts[parts.length-1];
             }
+            function nonempty(string){
+                return string.length;
+            }
+            function wordRegex(words){
+                s = "([^a-zA-Z0-9_$])(";
+                let first = true;
+                for(let word of words){
+                    if(first){
+                        first = false;
+                    } else {
+                        s += "|";
+                    }
+                    s += word;
+                }
+                s += ")([^a-zA-Z0-9_$])"
+                return new RegExp(s, "g");
+            }
+            function ready(){
+                return loadKeywords && loadFile && loadIdfchars;
+            }
+            function show(){
+                if(!ready()) return;
+                if(debugging) console.log("Showing");
+                file = " " + file + " ";
+                let s = "";
+                
+                const keywordRegex = wordRegex(keywords);
+                if(debugging) console.log("Keywords, regex is " + keywordRegex);
+                let lastEnd = 0;
+                while((match = keywordRegex.exec(file)) !== null){
+                    if(debugging){
+                        console.log("Another match:")
+                        console.log(match[0] + ", " + match[0].length);
+                        console.log(match[1] + ", " + match[1].length);
+                        console.log(match[2] + ", " + match[2].length);
+                        console.log(match[3] + ", " + match[3].length);
+                    }
+                    //s += file.slice(lastEnd, match.index+1) + match[1];
+                    //s += "<span class='keyword'>" + match[2] + "</span>";
+                    //lastEnd = match.index + match[1].length + match[2].length;
+                    s += file.slice(lastEnd, match.index) + match[1] + "<span class='keyword'>" + match[2] + "</span>";
+                    lastEnd = match.index + match[0].length - match[3].length;
+                    keywordRegex.lastIndex = lastEnd;
+                }
+                if(lastEnd<file.length){
+                    s += file.slice(lastEnd);
+                }
+
+                while(s.includes("\n")){
+                    s = s.replace("\n", "<br>");
+                }
+                while(s.includes("\t")){
+                    s = s.replace("\t", space.repeat(tabLen));
+                }
+                file = file.slice(1, -1);
+                if(debugging) console.log("Showing s=" + s);
+                document.getElementById("fdata").innerHTML = "<code>" + s + "</code>";
+            }
+
             function retrieveFileData() {
                 const fname = document.getElementById('fname').value;
                 if(debugging) console.log("Recieved file name " + fname);
 
                 keywords = [];
                 loadKeywords = false;
+                idfchars = "";
+                loadIdfchars = false;
                 file = "";
                 loadFile = false;
-
-                ready = function(){
-                    return loadKeywords && loadFile;
-                }
-                show = function(){
-                    if(!ready()) return;
-                    if(debugging) console.log("Showing");
-                    let s = "";
-                    const lines = file.split("\n");
-                    for(let i=0; i<lines.length; i++){
-                        const words = lines[i].split(" ");
-                        for(let j=0; j<words.length; j++){
-                            const word = words[j].trim();
-                            if(debugging) console.log("Word is '" + word + "', keywords.includes(word)=" + keywords.includes(word));
-                            if(keywords.includes(word)){
-                                s += "<span class='keyword'>" + word + "</span>";
-                            } else {
-                                s += word;
-                            }
-                            if(j!=words.length-1) s += " ";
-                        }
-                        s += "<br>"
-                    }
-                    document.getElementById("fdata").innerHTML = "<code>" + s + "</code>";
-                }
 
                 const reqKeywords = new XMLHttpRequest();
                 reqKeywords.onload = function() {
@@ -60,12 +106,23 @@
                     for(let i=0; i<keywords.length; i++){
                         keywords[i] = keywords[i].trim();
                     }
+                    keywords = keywords.filter(nonempty);
                     loadKeywords = true;
                     if(debugging) console.log("Loaded keywords:" + keywords);
                     show();
                 }
                 reqKeywords.open("GET", address + "getkeywords.php?lang=" + lang(fname), true);
                 reqKeywords.send();
+
+                const reqIdfchars = new XMLHttpRequest();
+                reqIdfchars.onload = function() {
+                    idfchars = this.responseText;
+                    loadIdfchars = true;
+                    if(debugging) console.log("Loaded idfchars");
+                    show();
+                }
+                reqIdfchars.open("GET", address + "getidfchars.php?lang=" + lang(fname), true);
+                reqIdfchars.send();
 
                 const reqFile = new XMLHttpRequest();
                 reqFile.onload = function() {
@@ -86,11 +143,10 @@
 
             <button type="button" onclick="retrieveFileData()">Download</button>
 
-            <h2>File data:</h2>
-
-            <p id="fdata">
-                Will show Some <code><span class="keyword">key</span></code> word, file example is JPFUtils.java or short.java
-            </p>
+            <h2>File:</h2>
+            <div id="fdata">
+                <code>Enter file name, file example is JPFUtils.java or short.java</code>
+            </div>
         </div>
     </body>
 </html> 
