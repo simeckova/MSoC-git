@@ -2,11 +2,24 @@
 <html>
     <head>
         <style>
+            body {
+                margin: 0.5vh;
+                padding: 0.5vh;
+            }
+            #page {
+                display: flex;
+                flex-direction: column;
+                height: 98vh;
+            }
+            #input {
+                width: 10cm;
+            }
             #fdata {
                 border: 1px solid #ddd;
                 overflow: auto;
-                height: 500px;
+                flex: 1;
             }
+
             .keyword {
                 color: orangered;
             }
@@ -137,11 +150,13 @@
         </script>
     </head>
     <body>
-        <div>
-            <label for="fname">File name:</label>
-            <input type="text" id="fname" name="fname">
-
-            <button type="button" onclick="retrieveFileData()">Download</button>
+        <div id="page">
+            <div id="input">
+                <label for="fname">File name:</label>
+                <input type="text" id="fname" name="fname" size="20">
+    
+                <button type="button" onclick="retrieveFileData()">Download</button>
+            </div>
 
             <h2>File:</h2>
             <div id="fdata">
