@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="prism-sources\prism.css" rel="stylesheet" />
+        <style>
+            body {
+                margin: 0.5vh;
+                padding: 0.5vh;
+            }
+            #page {
+                display: flex;
+                flex-direction: column;
+                height: 98vh;
+            }
+            #input {
+                width: 10cm;
+            }
+            #fdata {
+                border: 1px solid #ddd;
+                overflow: auto;
+                flex: 1;
+            }
+
+            .keyword {
+                color: orangered;
+            }
+        </style>
+        <script>
+            const debugging = true;
+            const address = "http://localhost:8080/";
+
+            const space = "&nbsp";
+            const tabLen = 4;
+
+            let fname = "";
+            let file = "";
+            let loadFile = false;
+
+            function lang(fname){
+                const parts = fname.split(".");
+                if(debugging) console.log("File lang is " + parts[parts.length-1]);
+                return parts[parts.length-1];
+            }
+            function ready(){
+                return loadFile;
+            }
+            function show(){
+                if(!ready()) return;
+                if(debugging) console.log("Showing");
+
+                /*while(file.includes("\n")){
+                    file = file.replace("\n", "<br>");
+                }
+                while(file.includes("\t")){
+                    file = file.replace("\t", space.repeat(tabLen));
+                }*/
+                //let encoded = decodeURIComponent(file);
+                document.getElementById("fdata").innerHTML = "<pre><code class='language-" + lang(fname) + "'>" + file + "</code></pre>";
+                Prism.highlightAll();
+            }
+
+            function retrieveFileData() {
+                fname = document.getElementById('fname').value;
+                if(debugging) console.log("Recieved file name " + fname);
+
+                file = "";
+                loadFile = false;
+
+                const reqFile = new XMLHttpRequest();
+                reqFile.onload = function() {
+                    file = this.responseText;
+                    loadFile = true;
+                    if(debugging) console.log("Loaded file");
+                    show();
+                }
+                reqFile.open("GET", address + "showfile.php?fname=" + fname, true);
+                reqFile.send();
+            }
+        </script>
+    </head>
+    <body>
+        <script src="prism-sources\prism.js"></script>
+        <div id="page">
+            <div id="input">
+                <label for="fname">File name:</label>
+                <input type="text" id="fname" name="fname" size="20">
+    
+                <button type="button" onclick="retrieveFileData()">Download</button>
+            </div>
+
+            <h2>File:</h2>
+            <div id="fdata">
+                <pre><code>Enter file name, file example is JPFUtils.java or short.java or <example class="js"></example></code></pre>
+            </div>
+        </div>
+    </body>
+</html> 
