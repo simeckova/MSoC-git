@@ -10,27 +10,23 @@
             #page {
                 display: flex;
                 flex-direction: column;
-                height: 98vh;
+                height: calc(100vh - 4*0.5vh);
             }
             #input {
                 width: 10cm;
             }
-            #fdata {
+            h2 {
+                margin-bottom: 2px;
+            }
+            #fdata-pre {
+                height: 78vh;
                 border: 1px solid #ddd;
                 overflow: auto;
-                flex: 1;
-            }
-
-            .keyword {
-                color: orangered;
             }
         </style>
         <script>
             const debugging = true;
             const address = "http://localhost:8080/";
-
-            const space = "&nbsp";
-            const tabLen = 4;
 
             let fname = "";
             let file = "";
@@ -47,15 +43,7 @@
             function show(){
                 if(!ready()) return;
                 if(debugging) console.log("Showing");
-
-                /*while(file.includes("\n")){
-                    file = file.replace("\n", "<br>");
-                }
-                while(file.includes("\t")){
-                    file = file.replace("\t", space.repeat(tabLen));
-                }*/
-                //let encoded = decodeURIComponent(file);
-                document.getElementById("fdata").innerHTML = "<pre><code class='language-" + lang(fname) + "'>" + file + "</code></pre>";
+                document.getElementById("fdata-pre").innerHTML = "<code  id='fdata-code' class='language-" + lang(fname) + "'>" + file + "</code>";
                 Prism.highlightAll();
             }
 
@@ -89,9 +77,8 @@
             </div>
 
             <h2>File:</h2>
-            <div id="fdata">
-                <pre><code>Enter file name, file example is JPFUtils.java or short.java or example.js</code></pre>
-            </div>
+            <pre id="fdata-pre"><code id="fdata-code">Enter file name, file example is JPFUtils.java or short.java or example.js</code></pre>
+            
         </div>
     </body>
-</html> 
+</html>
