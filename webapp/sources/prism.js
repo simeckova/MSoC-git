@@ -21629,7 +21629,7 @@ import { showLineText } from './show-line-text.js';
 		return false;
 	}
 
-	var scrollIntoView = true;
+	var scrollIntoView = false;
 
 	Prism.plugins.lineHighlight = {
 		/**
@@ -21763,7 +21763,7 @@ import { showLineText } from './show-line-text.js';
 						scrollIntoView = false;
 						location.hash = hash;
 						setTimeout(function () {
-							scrollIntoView = true;
+							scrollIntoView = false;
 						}, 1);
 					};
 				});
