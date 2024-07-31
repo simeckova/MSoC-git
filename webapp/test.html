@@ -1,39 +1,18 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <link href="prism-sources\prism.css" rel="stylesheet" />
-        <script src="prism-sources\prism.js"></script>
-    </head>
-    <body>
-        <h1 style="font-family: Arial, sans-serif; letter-spacing: 0.1em;">PRISM.JS</h1>
-        <pre>
-        <code class="language-markup"><!--
-        -->&lt;div&gt;
-            &lt;img class="example" src="example.png"&gt;
-        &lt;/div&gt;<!--
-        --></code>
-        </pre>
-
-        <pre>
-        <code class="language-css"><!--
-        -->.example {
-            display: block;
-            width: 100%;
-            height: auto;
-        }<!--
-        --></code>
-        </pre>
-
-        <pre>
-        <code class='language-js'><!--
-        -->const Prism = require('prismjs');
-
-        // The code snippet you want to highlight, as a string
-        const code = `var data = 1;`;
-
-        // Returns a highlighted HTML string
-        const html = Prism.highlight(code, Prism.languages.javascript, 'javascript');<!--
-        --></code>
-        </pre>
-    </body>
-</html> 
+<html lang="en">
+<head>
+    <link href="prism-sources\prism.css" rel="stylesheet" />
+    <script type="module" src="prism-sources\prism.js" defer></script>
+</head>
+<body>
+    
+    <pre id="linkable" class="line-numbers linkable-line-numbers language-javascript"><code>
+// This is a comment
+var x = 10; // Highlighted line
+function foo() {
+    return x * 2; // Highlighted line
+}
+foo();
+</code></pre>
+</body>
+</html>
