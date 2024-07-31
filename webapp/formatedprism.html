@@ -1,73 +1,28 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link href="prism-sources\prism.css" rel="stylesheet" />
+        <link href="sources\prism.css" rel="stylesheet" />
         <style>
-            body {
-                margin: 0.5vh;
-                padding: 0.5vh;
-            }
-            #page {
-                display: flex;
-                flex-direction: column;
-                height: calc(100vh - 4*0.5vh);
-            }
-            #input {
-                width: 10cm;
-            }
-            h2 {
-                margin-bottom: 2px;
-            }
             #fdata-pre {
-                height: 78vh;
+                height: 50vh;
+                border: 1px solid #ddd;
+                overflow: auto;
+            }
+            #line-text {
                 border: 1px solid #ddd;
                 overflow: auto;
             }
         </style>
+
         <script>
             const debugging = true;
             const address = "http://localhost:8080/";
-
             let fname = "";
-            let file = "";
-            let loadFile = false;
-
-            function lang(fname){
-                const parts = fname.split(".");
-                if(debugging) console.log("File lang is " + parts[parts.length-1]);
-                return parts[parts.length-1];
-            }
-            function ready(){
-                return loadFile;
-            }
-            function show(){
-                if(!ready()) return;
-                if(debugging) console.log("Showing");
-                document.getElementById("fdata-pre").innerHTML = "<code  id='fdata-code' class='language-" + lang(fname) + "'>" + file + "</code>";
-                Prism.highlightAll();
-            }
-
-            function retrieveFileData() {
-                fname = document.getElementById('fname').value;
-                if(debugging) console.log("Recieved file name " + fname);
-
-                file = "";
-                loadFile = false;
-
-                const reqFile = new XMLHttpRequest();
-                reqFile.onload = function() {
-                    file = this.responseText;
-                    loadFile = true;
-                    if(debugging) console.log("Loaded file");
-                    show();
-                }
-                reqFile.open("GET", address + "showfile.php?fname=" + fname, true);
-                reqFile.send();
-            }
         </script>
+        <script type="module" src="sources\prism.js" defer></script>
+        <script src="sources\show-file.js" defer></script>
     </head>
     <body>
-        <script src="prism-sources\prism.js"></script>
         <div id="page">
             <div id="input">
                 <label for="fname">File name:</label>
@@ -77,12 +32,10 @@
             </div>
 
             <h2>File:</h2>
-            <pre id="fdata-pre"
-                 class="line-numbers"
-                 class="linkable-line-numbers"
-                 data-line="2,4-5"
-            ><code id="fdata-code">Enter file name, file example is JPFUtils.java or short.java or example.js</code></pre>
-            
+            <pre id="fdata-pre" class="language-none"><code id="fdata-code">Enter file name, file example is JPFUtils.java or keywords-java.txt or example.js</code></pre>
+
+            <h3 id="line-header">No line picked</h3>
+            <pre id="line-text" style="display: none"></pre>
         </div>
     </body>
 </html>

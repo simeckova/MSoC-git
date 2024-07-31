@@ -8226,7 +8226,7 @@ Prism.hooks.add('after-tokenize', function afterTokenizeGraphql(env) {
 	/**
 	 * get the graphql token stream that we want to customize
 	 *
-	 * @typedef {InstanceType<import("./prism-core")["Token"]>} Token
+	 * @typedef {InstanceType<import("./prism-core.js")["Token"]>} Token
 	 * @type {Token[]}
 	 */
 	var validTokens = env.tokens.filter(function (token) {
@@ -13672,7 +13672,7 @@ Prism.languages['nand2tetris-hdl'] = {
 	};
 	Prism.languages.nani = Prism.languages['naniscript'];
 
-	/** @typedef {InstanceType<import("./prism-core")["Token"]>} Token */
+	/** @typedef {InstanceType<import("./prism-core.js")["Token"]>} Token */
 
 	/**
 	 * This hook is used to validate generic-text tokens for balanced brackets.

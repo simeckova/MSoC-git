@@ -1,5 +1,6 @@
 <?php
 $req_fname = $_GET["fname"];
+$linenum = $_GET["linenum"];
 
 $fname = "/var/www/" . $req_fname;
 
@@ -11,9 +12,13 @@ if ($fp == false)
 }
 else
 {
-	$fdata = fread($fp, filesize($fname));
-	fclose($fp);
-	echo $fdata;
+	if ($linenum == 2){
+		echo "This is text for line 2";
+	} else if ($linenum == 3){
+		echo "And this is text for line 3";
+	} else {
+		echo "";
+	}
 }
 ?>
 
