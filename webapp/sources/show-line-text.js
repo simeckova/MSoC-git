@@ -4,7 +4,12 @@ function show(lineNum, text){
 
     const lineHeader = document.getElementById("line-header");
     const lineText = document.getElementById("line-text");
-    if(text == ""){
+    if(lineNum == 0){
+        lineHeader.innerHTML = "No line picked.";
+        lineText.innerHTML = "";
+        lineText.className = '';
+        lineText.style.display = 'none';
+    } else if(text == ""){
         lineHeader.innerHTML = "No text for line " + lineNum + " of file " + fname + ".";
         lineText.innerHTML = "";
         lineText.className = '';
@@ -21,14 +26,18 @@ function show(lineNum, text){
 export function showLineText(lineNum) {
     if(debugging) console.log("Clicked line " + lineNum + " in file " + fname);
 
-    let text = "";
+    if(lineNum == 0){
+        show(0, '')
+    } else {
+        let text = "";
 
-    const reqLineText = new XMLHttpRequest();
-    reqLineText.onload = function() {
-        text = this.responseText;
-        if(debugging) console.log("Loaded line text");
-        show(lineNum, text);
+        const reqLineText = new XMLHttpRequest();
+        reqLineText.onload = function() {
+            text = this.responseText;
+            if(debugging) console.log("Loaded line text");
+            show(lineNum, text);
+        }
+        reqLineText.open("GET", address + "linetext.php?fname=" + fname + "&linenum=" + lineNum, true);
+        reqLineText.send();
     }
-    reqLineText.open("GET", address + "linetext.php?fname=" + fname + "&linenum=" + lineNum, true);
-    reqLineText.send();
 }

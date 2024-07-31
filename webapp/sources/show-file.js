@@ -1,9 +1,14 @@
+import { showLineText } from './show-line-text.js';
+
+
 let file = "";
 let loadedFile = false;
 
 function lang(fname){
     const parts = fname.split(".");
-    if(debugging) console.log("File lang is " + parts[parts.length-1]);
+    let returning = parts[parts.length-1];
+    if(returning == "html") returning = "markup";
+    if(debugging) console.log("File lang is " + returning);
     return parts[parts.length-1];
 }
 function ready(){
@@ -13,13 +18,17 @@ function show(){
     if(!ready()) return;
     if(debugging) console.log("Showing");
     const fdataPre = document.getElementById("fdata-pre");
+
+    if(lang(fname)=="markup") file = "<!--" + file + "-->";
+
     fdataPre.innerHTML = "<code  id='fdata-code'>" + file + "</code>";
     fdataPre.className = 'line-numbers linkable-line-numbers language-' + lang(fname);
-    //class='line-numbers linkable-line-numbers language-" + lang(fname) + "'
     Prism.highlightAll();
 }
 
 function retrieveFileData() {
+    showLineText(0);
+
     fname = document.getElementById('fname').value;
     if(debugging) console.log("Recieved file name " + fname);
 
