@@ -1,4 +1,4 @@
-import { showLineText } from './show-line-text.js';
+//import { showLineText } from './show-line-text.js';
 
 
 let file = "";
@@ -27,7 +27,7 @@ function show(){
 }
 
 function retrieveFileData() {
-    showLineText(0);
+    //showLineText(0);
 
     fname = document.getElementById('fname').value;
     if(debugging) console.log("Recieved file name " + fname);
