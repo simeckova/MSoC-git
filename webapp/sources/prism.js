@@ -4,6 +4,7 @@ https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javasc
 
 // ADDED:
 import { showLineText } from './show-line-text.js';
+import { hoverLineText } from './hover-line-text.js';
 
 var _self = (typeof window !== 'undefined')
 	? window   // if in browser
@@ -21748,6 +21749,9 @@ Prism.languages.yang = {
 
 				var start = parseInt(pre.getAttribute('data-start') || '1');
 
+				//ADDED:
+				let hoverLineNum = 1;
+
 				// iterate all line number spans
 				$$('.line-numbers-rows > span', pre).forEach(function (lineSpan, i) {
 					var lineNumber = i + start;
@@ -21765,6 +21769,10 @@ Prism.languages.yang = {
 							scrollIntoView = false;
 						}, 1);
 					};
+
+					// ADDED:
+					hoverLineText(hoverLineNum, lineSpan);
+					hoverLineNum++;
 				});
 			}
 
