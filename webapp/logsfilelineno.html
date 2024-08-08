@@ -1,0 +1,41 @@
+ <!DOCTYPE html>
+<html>
+
+<head>
+<script>
+  const address = "http://localhost:8080/";
+function retrieveLogsFileLineNumber() {
+  const xhreq = new XMLHttpRequest();
+  xhreq.onload = function() {
+    document.getElementById("flnlogs").innerHTML = "<pre>" + this.responseText + "</pre>";
+  }
+  xhreq.open("GET", address + "logsfilelineno.php?fname=" + document.getElementById('fname').value + "&lineno=" + document.getElementById('lineno').value , true);
+  xhreq.send();
+}
+</script> 
+</head>
+
+<body>
+
+<div>
+
+<label for="fname">File name:</label>
+<input type="text" id="fname" name="fname">
+
+<label for="lineno">Line number:</label>
+<input type="text" id="lineno" name="lineno">
+
+<button type="button" onclick="retrieveLogsFileLineNumber()">Download</button>
+
+<h2>Log message:</h2>
+
+<p id="flnlogs">
+To be downloaded from the server using AJAX
+</p>
+
+</div>
+
+</body>
+
+</html> 
+

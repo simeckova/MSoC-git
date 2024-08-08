@@ -4,10 +4,15 @@
 let file = "";
 let loadedFile = false;
 
+function escapeFile(fileText){
+    fileText = fileText.replace(/&/g, "&amp");
+    fileText = fileText.replace(/</g, "&lt");
+    fileText = fileText.replace(/>/g, "&gt");
+    return fileText;
+}
 function lang(fname){
     const parts = fname.split(".");
     let returning = parts[parts.length-1];
-    if(returning == "html") returning = "markup";
     if(debugging) console.log("File lang is " + returning);
     return parts[parts.length-1];
 }
@@ -19,7 +24,7 @@ function show(){
     if(debugging) console.log("Showing");
     const fdataPre = document.getElementById("fdata-pre");
 
-    if(lang(fname)=="markup") file = "<!--" + file + "-->";
+    file = escapeFile(file);
 
     fdataPre.innerHTML = "<code  id='fdata-code'>" + file + "</code>";
     fdataPre.className = 'line-numbers linkable-line-numbers language-' + lang(fname);
