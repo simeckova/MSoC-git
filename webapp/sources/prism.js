@@ -22127,6 +22127,9 @@ Prism.languages.yang = {
 
 }());
 
+
+// ADDED:
+let invi = true;
 (function () {
 
 	if (typeof Prism === 'undefined') {
@@ -22207,7 +22210,7 @@ Prism.languages.yang = {
 	}
 
 	Prism.hooks.add('before-highlight', function (env) {
-		addInvisibles(env.grammar);
+		if(invi) addInvisibles(env.grammar);
 	});
 }());
 
@@ -22691,6 +22694,19 @@ Prism.languages.yang = {
 		}
 	});
 }());
+
+// ADDED:
+/*Prism.plugins.toolbar.registerButton('show-invisibles', function(env) {
+	var button = document.createElement('button');
+	button.innerHTML = 'Show/Hide invisibles';
+
+	button.addEventListener('click', function () {
+		invi = !invi;
+		Prism.highlightAll();
+	});
+
+	return button;
+});*/
 
 (function () {
 
