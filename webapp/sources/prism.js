@@ -22896,3 +22896,8 @@ Prism.languages.yang = {
 
 }());
 
+
+//ADDED:
+export function expHighlight(){
+	Prism.highlightAll();
+}

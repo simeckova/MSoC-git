@@ -15,12 +15,17 @@
         </style>
 
         <script>
-            const debugging = true;
-            const address = "http://localhost:8080/";
-            let fname = "";
+            window.debugging = true;
+            window.address = "http://localhost:8080/";
+            window.fname = "";
         </script>
-        <script type="module" src="sources\prism.js" defer></script>
-        <script src="sources\show-file.js" defer></script>
+        <script type="module" src="sources\prism.js" async></script>
+        <script type="module" defer>
+            import {retrieveFileData} from "./sources/show-file.js";
+            import {clean} from "./sources/clean.js";
+            window.retrieveFileData = retrieveFileData;
+            clean();
+        </script>
     </head>
     <body>
         <div id="page">
@@ -32,10 +37,10 @@
             </div>
 
             <h2>File:</h2>
-            <pre id="fdata-pre" class="language-none"><code id="fdata-code">Enter file name, file example is JPFUtils.java or keywords-java.txt or example.js</code></pre>
+            <pre id="fdata-pre"></pre>
 
-            <h3 id="line-header">No line picked.</h3>
-            <pre id="line-text" style="display: none"></pre>
+            <h3 id="line-header"></h3>
+            <pre id="line-text"></pre>
         </div>
     </body>
 </html>

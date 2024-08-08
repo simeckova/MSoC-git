@@ -5,6 +5,7 @@ function show(lineNum, text){
     const lineHeader = document.getElementById("line-header");
     const lineText = document.getElementById("line-text");
     if(lineNum == 0){
+        if(debugging) console.log("Picked 0 line");
         lineHeader.innerHTML = "No line picked.";
         lineText.innerHTML = "";
         lineText.className = '';
@@ -20,10 +21,9 @@ function show(lineNum, text){
         lineText.className = 'line-numbers language-none';
         lineText.style.display = 'block';
     }
-    Prism.highlightAll();
 }
 
-export function showLineText(lineNum) {
+function showLineText(lineNum) {
     if(debugging) console.log("Clicked line " + lineNum + " in file " + fname);
 
     if(lineNum == 0){
@@ -37,7 +37,9 @@ export function showLineText(lineNum) {
             if(debugging) console.log("Loaded line text");
             show(lineNum, text);
         }
-        reqLineText.open("GET", address + "linetext.php?fname=" + fname + "&linenum=" + lineNum, true);
+        reqLineText.open("GET", address + "logsfilelineno.php?fname=" + fname + "&lineno=" + lineNum, true);
         reqLineText.send();
     }
 }
+
+export {showLineText};

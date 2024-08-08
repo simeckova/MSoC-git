@@ -1,5 +1,5 @@
-//import { showLineText } from './show-line-text.js';
-
+import { clean } from './clean.js';
+import { expHighlight } from './prism.js';
 
 let file = "";
 let loadedFile = false;
@@ -28,11 +28,11 @@ function show(){
 
     fdataPre.innerHTML = "<code  id='fdata-code'>" + file + "</code>";
     fdataPre.className = 'line-numbers linkable-line-numbers language-' + lang(fname);
-    Prism.highlightAll();
+    expHighlight();
 }
 
 function retrieveFileData() {
-    //showLineText(0);
+    clean();
 
     fname = document.getElementById('fname').value;
     if(debugging) console.log("Recieved file name " + fname);
@@ -50,3 +50,5 @@ function retrieveFileData() {
     reqFile.open("GET", address + "showfile.php?fname=" + fname, true);
     reqFile.send();
 }
+
+export {retrieveFileData};
