@@ -3,8 +3,8 @@ https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javasc
 /// <reference lib="WebWorker"/>
 
 // ADDED:
-import { showLineText } from './show-line-text.js';
-import { hoverLineText } from './hover-line-text.js';
+import { showLogs } from './showLogs.js';
+import { hoverLogs } from './hoverLogs.js';
 
 var _self = (typeof window !== 'undefined')
 	? window   // if in browser
@@ -21757,7 +21757,7 @@ Prism.languages.yang = {
 					var lineNumber = i + start;
 					lineSpan.onclick = function () {
 						// ADDED:
-						showLineText(lineNumber);
+						showLogs(lineNumber);
 
 
 						var hash = id + '.' + lineNumber;
@@ -21771,7 +21771,7 @@ Prism.languages.yang = {
 					};
 
 					// ADDED:
-					hoverLineText(hoverLineNum, lineSpan);
+					hoverLogs(hoverLineNum, lineSpan);
 					hoverLineNum++;
 				});
 			}

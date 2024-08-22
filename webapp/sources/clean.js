@@ -1,4 +1,4 @@
-import { showLineText } from './show-line-text.js';
+import { showLogs } from './showLogs.js';
 import { expHighlight } from './prism.js';
 
 function removeHash () { 
@@ -19,9 +19,13 @@ function removeHash () {
 }
 
 function clean(){
-    fname = "";
+    LOADEDFILE = false;
+    HASLOGS = false;
+    FNAME = "";
+    FILE = ""
+    LOGS.clear();
     removeHash();
-    showLineText(0);
+    showLogs(0);
 
     const fdataPre = document.getElementById("fdata-pre");
     fdataPre.innerHTML = '<code id="fdata-code">Enter file name, file example is JPFUtils.java or keywords-java.txt or example.js</code>';
