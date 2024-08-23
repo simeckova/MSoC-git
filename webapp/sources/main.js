@@ -13,3 +13,9 @@ window.LOGS = new Map();
 
 window.loadFile = loadFile;
 clean();
+
+document.getElementById('input').addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        loadFile();
+    }
+});
