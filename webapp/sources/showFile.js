@@ -12,7 +12,8 @@ function showFile(){
     let file = escapeFile(FILE);
 
     fdataPre.innerHTML = "<code  id='fdata-code'>" + file + "</code>";
-    fdataPre.className = 'line-numbers linkable-line-numbers language-' + lang(FNAME);
+    fdataPre.className = "line-numbers linkable-line-numbers \
+                          language-" + lang(FNAME);
     highlight(fdataPre);
 }
 

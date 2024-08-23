@@ -21,7 +21,8 @@ function showLogs(lineNum) {
         lineText.style.display = 'block';
         lineHeader.innerHTML = "Text for line " + lineNum + " of file " + FNAME + ":";
         lineText.innerHTML = "<code>" + escapeFile(LOGS.get(lineNum)) + "</code>";
-        lineText.className = 'line-numbers language-plain';
+        lineText.className = "line-numbers language-plain";
+        LOG = LOGS.get(lineNum);
     } else {
         lineHeader.style.display = 'block';
         lineText.style.display = 'none';

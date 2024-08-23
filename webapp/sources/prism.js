@@ -22657,8 +22657,10 @@ Prism.languages.yang = {
 
 }());
 
-
 //ADDED:
 export function highlight(element){
 	Prism.highlightAllUnder(element);
+}
+export function regButton(id, info){
+	Prism.plugins.toolbar.registerButton(id, info);
 }
