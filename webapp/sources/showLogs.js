@@ -1,4 +1,5 @@
-import { expHighlight } from "./prism.js";
+import { highlight } from "./prism.js";
+import { escapeFile } from "./escapeFile.js";
 
 function showLogs(lineNum) {
     const lineHeader = document.getElementById("line-header");
@@ -19,14 +20,14 @@ function showLogs(lineNum) {
         lineHeader.style.display = 'block';
         lineText.style.display = 'block';
         lineHeader.innerHTML = "Text for line " + lineNum + " of file " + FNAME + ":";
-        lineText.innerHTML = "<code>" + LOGS.get(lineNum) + "</code>";
-        lineText.className = 'line-numbers language-none';
+        lineText.innerHTML = "<code>" + escapeFile(LOGS.get(lineNum)) + "</code>";
+        lineText.className = 'line-numbers language-plain';
     } else {
         lineHeader.style.display = 'block';
         lineText.style.display = 'none';
         lineHeader.innerHTML = "No text for line " + lineNum + " of file " + FNAME + ".";
     }
-    expHighlight();
+    highlight(lineText);
 }
 
 export {showLogs};

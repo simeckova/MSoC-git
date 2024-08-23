@@ -1,5 +1,5 @@
 import { showLogs } from './showLogs.js';
-import { expHighlight } from './prism.js';
+import { highlight } from './prism.js';
 
 function removeHash () { 
     var scrollV, scrollH, loc = window.location;
@@ -30,7 +30,7 @@ function clean(){
     const fdataPre = document.getElementById("fdata-pre");
     fdataPre.innerHTML = '<code id="fdata-code">Enter file name, file example is JPFUtils.java or keywords-java.txt or example.js</code>';
     fdataPre.className = 'language-none';
-    expHighlight();
+    highlight(fdataPre);
 }
 
 export {clean};

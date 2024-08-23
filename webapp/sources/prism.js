@@ -1,5 +1,5 @@
 /* PrismJS 1.29.0
-https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+abap+abnf+actionscript+ada+agda+al+antlr4+apacheconf+apex+apl+applescript+aql+arduino+arff+armasm+arturo+asciidoc+aspnet+asm6502+asmatmel+autohotkey+autoit+avisynth+avro-idl+awk+bash+basic+batch+bbcode+bbj+bicep+birb+bison+bnf+bqn+brainfuck+brightscript+bro+bsl+c+csharp+cpp+cfscript+chaiscript+cil+cilkc+cilkcpp+clojure+cmake+cobol+coffeescript+concurnas+csp+cooklang+coq+crystal+css-extras+csv+cue+cypher+d+dart+dataweave+dax+dhall+diff+django+dns-zone-file+docker+dot+ebnf+editorconfig+eiffel+ejs+elixir+elm+etlua+erb+erlang+excel-formula+fsharp+factor+false+firestore-security-rules+flow+fortran+ftl+gml+gap+gcode+gdscript+gedcom+gettext+gherkin+git+glsl+gn+linker-script+go+go-module+gradle+graphql+groovy+haml+handlebars+haskell+haxe+hcl+hlsl+hoon+http+hpkp+hsts+ichigojam+icon+icu-message-format+idris+ignore+inform7+ini+io+j+java+javadoc+javadoclike+javastacktrace+jexl+jolie+jq+jsdoc+js-extras+json+json5+jsonp+jsstacktrace+js-templates+julia+keepalived+keyman+kotlin+kumir+kusto+latex+latte+less+lilypond+liquid+lisp+livescript+llvm+log+lolcode+lua+magma+makefile+markdown+markup-templating+mata+matlab+maxscript+mel+mermaid+metafont+mizar+mongodb+monkey+moonscript+n1ql+n4js+nand2tetris-hdl+naniscript+nasm+neon+nevod+nginx+nim+nix+nsis+objectivec+ocaml+odin+opencl+openqasm+oz+parigp+parser+pascal+pascaligo+psl+pcaxis+peoplecode+perl+php+phpdoc+php-extras+plant-uml+plsql+powerquery+powershell+processing+prolog+promql+properties+protobuf+pug+puppet+pure+purebasic+purescript+python+qsharp+q+qml+qore+r+racket+cshtml+jsx+tsx+reason+regex+rego+renpy+rescript+rest+rip+roboconf+robotframework+ruby+rust+sas+sass+scss+scala+scheme+shell-session+smali+smalltalk+smarty+sml+solidity+solution-file+soy+sparql+splunk-spl+sqf+sql+squirrel+stan+stata+iecst+stylus+supercollider+swift+systemd+t4-templating+t4-cs+t4-vb+tap+tcl+tt2+textile+toml+tremor+turtle+twig+typescript+typoscript+unrealscript+uorazor+uri+v+vala+vbnet+velocity+verilog+vhdl+vim+visual-basic+warpscript+wasm+web-idl+wgsl+wiki+wolfram+wren+xeora+xml-doc+xojo+xquery+yaml+yang+zig&plugins=line-highlight+line-numbers+show-invisibles+autolinker+unescaped-markup+toolbar+copy-to-clipboard+download-button+match-braces */
+https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+abap+abnf+actionscript+ada+agda+al+antlr4+apacheconf+apex+apl+applescript+aql+arduino+arff+armasm+arturo+asciidoc+aspnet+asm6502+asmatmel+autohotkey+autoit+avisynth+avro-idl+awk+bash+basic+batch+bbcode+bbj+bicep+birb+bison+bnf+bqn+brainfuck+brightscript+bro+bsl+c+csharp+cpp+cfscript+chaiscript+cil+cilkc+cilkcpp+clojure+cmake+cobol+coffeescript+concurnas+csp+cooklang+coq+crystal+css-extras+csv+cue+cypher+d+dart+dataweave+dax+dhall+diff+django+dns-zone-file+docker+dot+ebnf+editorconfig+eiffel+ejs+elixir+elm+etlua+erb+erlang+excel-formula+fsharp+factor+false+firestore-security-rules+flow+fortran+ftl+gml+gap+gcode+gdscript+gedcom+gettext+gherkin+git+glsl+gn+linker-script+go+go-module+gradle+graphql+groovy+haml+handlebars+haskell+haxe+hcl+hlsl+hoon+http+hpkp+hsts+ichigojam+icon+icu-message-format+idris+ignore+inform7+ini+io+j+java+javadoc+javadoclike+javastacktrace+jexl+jolie+jq+jsdoc+js-extras+json+json5+jsonp+jsstacktrace+js-templates+julia+keepalived+keyman+kotlin+kumir+kusto+latex+latte+less+lilypond+liquid+lisp+livescript+llvm+log+lolcode+lua+magma+makefile+markdown+markup-templating+mata+matlab+maxscript+mel+mermaid+metafont+mizar+mongodb+monkey+moonscript+n1ql+n4js+nand2tetris-hdl+naniscript+nasm+neon+nevod+nginx+nim+nix+nsis+objectivec+ocaml+odin+opencl+openqasm+oz+parigp+parser+pascal+pascaligo+psl+pcaxis+peoplecode+perl+php+phpdoc+php-extras+plant-uml+plsql+powerquery+powershell+processing+prolog+promql+properties+protobuf+pug+puppet+pure+purebasic+purescript+python+qsharp+q+qml+qore+r+racket+cshtml+jsx+tsx+reason+regex+rego+renpy+rescript+rest+rip+roboconf+robotframework+ruby+rust+sas+sass+scss+scala+scheme+shell-session+smali+smalltalk+smarty+sml+solidity+solution-file+soy+sparql+splunk-spl+sqf+sql+squirrel+stan+stata+iecst+stylus+supercollider+swift+systemd+t4-templating+t4-cs+t4-vb+tap+tcl+tt2+textile+toml+tremor+turtle+twig+typescript+typoscript+unrealscript+uorazor+uri+v+vala+vbnet+velocity+verilog+vhdl+vim+visual-basic+warpscript+wasm+web-idl+wgsl+wiki+wolfram+wren+xeora+xml-doc+xojo+xquery+yaml+yang+zig&plugins=line-highlight+line-numbers+show-invisibles+autolinker+toolbar+match-braces */
 /// <reference lib="WebWorker"/>
 
 // ADDED:
@@ -8230,7 +8230,7 @@ Prism.hooks.add('after-tokenize', function afterTokenizeGraphql(env) {
 	/**
 	 * get the graphql token stream that we want to customize
 	 *
-	 * @typedef {InstanceType<import("./prism-core.js")["Token"]>} Token
+	 * @typedef {InstanceType<import("./prism-core")["Token"]>} Token
 	 * @type {Token[]}
 	 */
 	var validTokens = env.tokens.filter(function (token) {
@@ -13676,7 +13676,7 @@ Prism.languages['nand2tetris-hdl'] = {
 	};
 	Prism.languages.nani = Prism.languages['naniscript'];
 
-	/** @typedef {InstanceType<import("./prism-core.js")["Token"]>} Token */
+	/** @typedef {InstanceType<import("./prism-core")["Token"]>} Token */
 
 	/**
 	 * This hook is used to validate generic-text tokens for balanced brackets.
@@ -21629,7 +21629,7 @@ Prism.languages.yang = {
 		return false;
 	}
 
-	var scrollIntoView = false;
+	var scrollIntoView = true;
 
 	Prism.plugins.lineHighlight = {
 		/**
@@ -21759,17 +21759,15 @@ Prism.languages.yang = {
 						// ADDED:
 						showLogs(lineNumber);
 
-
 						var hash = id + '.' + lineNumber;
 
 						// this will prevent scrolling since the span is obviously in view
 						scrollIntoView = false;
 						location.hash = hash;
 						setTimeout(function () {
-							scrollIntoView = false;
+							scrollIntoView = true;
 						}, 1);
 					};
-
 					// ADDED:
 					hoverLogs(hoverLineNum, lineSpan);
 					hoverLineNum++;
@@ -22127,9 +22125,6 @@ Prism.languages.yang = {
 
 }());
 
-
-// ADDED:
-let invi = true;
 (function () {
 
 	if (typeof Prism === 'undefined') {
@@ -22210,7 +22205,7 @@ let invi = true;
 	}
 
 	Prism.hooks.add('before-highlight', function (env) {
-		if(invi) addInvisibles(env.grammar);
+		addInvisibles(env.grammar);
 	});
 }());
 
@@ -22289,69 +22284,6 @@ let invi = true;
 		}
 	});
 
-}());
-
-(function () {
-
-	if (typeof Prism === 'undefined' || typeof document === 'undefined') {
-		return;
-	}
-
-	// https://developer.mozilla.org/en-US/docs/Web/API/Element/matches#Polyfill
-	if (!Element.prototype.matches) {
-		Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
-	}
-
-
-	Prism.plugins.UnescapedMarkup = true;
-
-	Prism.hooks.add('before-highlightall', function (env) {
-		env.selector += ', [class*="lang-"] script[type="text/plain"]'
-			+ ', [class*="language-"] script[type="text/plain"]'
-			+ ', script[type="text/plain"][class*="lang-"]'
-			+ ', script[type="text/plain"][class*="language-"]';
-	});
-
-	Prism.hooks.add('before-sanity-check', function (env) {
-		/** @type {HTMLElement} */
-		var element = env.element;
-
-		if (element.matches('script[type="text/plain"]')) {
-			// found a <script type="text/plain" ...> element
-			// we convert this element to a regular <pre><code> code block
-
-			var code = document.createElement('code');
-			var pre = document.createElement('pre');
-
-			// copy class name
-			pre.className = code.className = element.className;
-
-			// copy all "data-" attributes
-			var dataset = element.dataset;
-			Object.keys(dataset || {}).forEach(function (key) {
-				if (Object.prototype.hasOwnProperty.call(dataset, key)) {
-					pre.dataset[key] = dataset[key];
-				}
-			});
-
-			code.textContent = env.code = env.code.replace(/&lt;\/script(?:>|&gt;)/gi, '</scri' + 'pt>');
-
-			// change DOM
-			pre.appendChild(code);
-			element.parentNode.replaceChild(pre, element);
-			env.element = code;
-			return;
-		}
-
-		if (!env.code) {
-			// no code
-			var childNodes = element.childNodes;
-			if (childNodes.length === 1 && childNodes[0].nodeName == '#comment') {
-				// the only child is a comment -> use the comment's text
-				element.textContent = env.code = childNodes[0].textContent;
-			}
-		}
-	});
 }());
 
 (function () {
@@ -22532,201 +22464,6 @@ let invi = true;
 	 * Register the toolbar with Prism.
 	 */
 	Prism.hooks.add('complete', hook);
-}());
-
-(function () {
-
-	if (typeof Prism === 'undefined' || typeof document === 'undefined') {
-		return;
-	}
-
-	if (!Prism.plugins.toolbar) {
-		console.warn('Copy to Clipboard plugin loaded before Toolbar plugin.');
-
-		return;
-	}
-
-	/**
-	 * When the given elements is clicked by the user, the given text will be copied to clipboard.
-	 *
-	 * @param {HTMLElement} element
-	 * @param {CopyInfo} copyInfo
-	 *
-	 * @typedef CopyInfo
-	 * @property {() => string} getText
-	 * @property {() => void} success
-	 * @property {(reason: unknown) => void} error
-	 */
-	function registerClipboard(element, copyInfo) {
-		element.addEventListener('click', function () {
-			copyTextToClipboard(copyInfo);
-		});
-	}
-
-	// https://stackoverflow.com/a/30810322/7595472
-
-	/** @param {CopyInfo} copyInfo */
-	function fallbackCopyTextToClipboard(copyInfo) {
-		var textArea = document.createElement('textarea');
-		textArea.value = copyInfo.getText();
-
-		// Avoid scrolling to bottom
-		textArea.style.top = '0';
-		textArea.style.left = '0';
-		textArea.style.position = 'fixed';
-
-		document.body.appendChild(textArea);
-		textArea.focus();
-		textArea.select();
-
-		try {
-			var successful = document.execCommand('copy');
-			setTimeout(function () {
-				if (successful) {
-					copyInfo.success();
-				} else {
-					copyInfo.error();
-				}
-			}, 1);
-		} catch (err) {
-			setTimeout(function () {
-				copyInfo.error(err);
-			}, 1);
-		}
-
-		document.body.removeChild(textArea);
-	}
-	/** @param {CopyInfo} copyInfo */
-	function copyTextToClipboard(copyInfo) {
-		if (navigator.clipboard) {
-			navigator.clipboard.writeText(copyInfo.getText()).then(copyInfo.success, function () {
-				// try the fallback in case `writeText` didn't work
-				fallbackCopyTextToClipboard(copyInfo);
-			});
-		} else {
-			fallbackCopyTextToClipboard(copyInfo);
-		}
-	}
-
-	/**
-	 * Selects the text content of the given element.
-	 *
-	 * @param {Element} element
-	 */
-	function selectElementText(element) {
-		// https://stackoverflow.com/a/20079910/7595472
-		window.getSelection().selectAllChildren(element);
-	}
-
-	/**
-	 * Traverses up the DOM tree to find data attributes that override the default plugin settings.
-	 *
-	 * @param {Element} startElement An element to start from.
-	 * @returns {Settings} The plugin settings.
-	 * @typedef {Record<"copy" | "copy-error" | "copy-success" | "copy-timeout", string | number>} Settings
-	 */
-	function getSettings(startElement) {
-		/** @type {Settings} */
-		var settings = {
-			'copy': 'Copy',
-			'copy-error': 'Press Ctrl+C to copy',
-			'copy-success': 'Copied!',
-			'copy-timeout': 5000
-		};
-
-		var prefix = 'data-prismjs-';
-		for (var key in settings) {
-			var attr = prefix + key;
-			var element = startElement;
-			while (element && !element.hasAttribute(attr)) {
-				element = element.parentElement;
-			}
-			if (element) {
-				settings[key] = element.getAttribute(attr);
-			}
-		}
-		return settings;
-	}
-
-	Prism.plugins.toolbar.registerButton('copy-to-clipboard', function (env) {
-		var element = env.element;
-
-		var settings = getSettings(element);
-
-		var linkCopy = document.createElement('button');
-		linkCopy.className = 'copy-to-clipboard-button';
-		linkCopy.setAttribute('type', 'button');
-		var linkSpan = document.createElement('span');
-		linkCopy.appendChild(linkSpan);
-
-		setState('copy');
-
-		registerClipboard(linkCopy, {
-			getText: function () {
-				return element.textContent;
-			},
-			success: function () {
-				setState('copy-success');
-
-				resetText();
-			},
-			error: function () {
-				setState('copy-error');
-
-				setTimeout(function () {
-					selectElementText(element);
-				}, 1);
-
-				resetText();
-			}
-		});
-
-		return linkCopy;
-
-		function resetText() {
-			setTimeout(function () { setState('copy'); }, settings['copy-timeout']);
-		}
-
-		/** @param {"copy" | "copy-error" | "copy-success"} state */
-		function setState(state) {
-			linkSpan.textContent = settings[state];
-			linkCopy.setAttribute('data-copy-state', state);
-		}
-	});
-}());
-
-// ADDED:
-/*Prism.plugins.toolbar.registerButton('show-invisibles', function(env) {
-	var button = document.createElement('button');
-	button.innerHTML = 'Show/Hide invisibles';
-
-	button.addEventListener('click', function () {
-		invi = !invi;
-		Prism.highlightAll();
-	});
-
-	return button;
-});*/
-
-(function () {
-
-	if (typeof Prism === 'undefined' || typeof document === 'undefined' || !document.querySelector) {
-		return;
-	}
-
-	Prism.plugins.toolbar.registerButton('download-file', function (env) {
-		var pre = env.element.parentNode;
-		if (!pre || !/pre/i.test(pre.nodeName) || !pre.hasAttribute('data-src') || !pre.hasAttribute('data-download-link')) {
-			return;
-		}
-		var src = pre.getAttribute('data-src');
-		var a = document.createElement('a');
-		a.textContent = pre.getAttribute('data-download-link-label') || 'Download';
-		a.setAttribute('download', '');
-		a.href = src;
-		return a;
-	});
-
 }());
 
 (function () {
@@ -22922,6 +22659,6 @@ let invi = true;
 
 
 //ADDED:
-export function expHighlight(){
-	Prism.highlightAll();
+export function highlight(element){
+	Prism.highlightAllUnder(element);
 }
