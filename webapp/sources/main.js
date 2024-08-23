@@ -13,6 +13,8 @@ window.FILE = ""
 window.LOGS = new Map();
 window.LOG = "" // currently displayed log
 
+window.HOVERON = true;
+
 makeButtons();
 
 window.loadFile = loadFile;

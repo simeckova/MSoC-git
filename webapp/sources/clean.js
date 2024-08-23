@@ -33,4 +33,4 @@ function clean(){
     highlight(fdataPre);
 }
 
-export {clean};
+export {clean, removeHash};

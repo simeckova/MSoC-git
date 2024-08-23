@@ -1,6 +1,7 @@
 import { escapeFile } from "./escapeFile.js";
 
 function hoverLogs(lineNum, lineSpan) {
+    if(!HOVERON) return;
     let text = ""
     if(lineNum != 0 && LOGS.has(lineNum)){
         text = LOGS.get(lineNum).trim();
